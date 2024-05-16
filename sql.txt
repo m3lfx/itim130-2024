@@ -57,3 +57,11 @@ WHERE c.customer_id = o.customer_id
 AND O.orderinfo_id = ol.orderinfo_id
 AND ol.item_id = i.item_id
 AND i.description like '%tissue%'
+
+fetch all customers from bingham that ordered items priced at 20 pesos or more.
+SELECT c.customer_id, c.lname, c.fname, o.orderinfo_id, ol.item_id, i.description, i.sell_price, ol.quantity
+FROM customer c, orderinfo o, orderline ol, item i
+WHERE c.customer_id = o.customer_id
+AND O.orderinfo_id = ol.orderinfo_id
+AND ol.item_id = i.item_id
+AND i.sell_price >= 20

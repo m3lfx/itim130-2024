@@ -78,11 +78,6 @@ FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INN
 WHERE date_placed BETWEEN '2000-03-01' AND '2000-03-31'
 
 
-
-
-
-
-
 fetch all customers that bought tissue
 SELECT c.customer_id, c.lname, c.fname, o.orderinfo_id, ol.item_id, i.description, ol.quantity
 FROM customer c, orderinfo o, orderline ol, item i
@@ -90,6 +85,12 @@ WHERE c.customer_id = o.customer_id
 AND O.orderinfo_id = ol.orderinfo_id
 AND ol.item_id = i.item_id
 AND i.description like '%tissue%'
+
+
+SELECT c.customer_id, concat(c.lname, " ", c.fname) as 'customer name', o.orderinfo_id, ol.item_id, i.description, ol.quantity
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id 
+INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON ol.item_id = i.item_id
+WHERE i.description like '%tissue%'
 
 fetch all customers from bingham that ordered items priced at 20 pesos or more.
 SELECT c.customer_id, c.lname, c.fname, o.orderinfo_id, ol.item_id, i.description, i.sell_price, ol.quantity

@@ -6,14 +6,24 @@ SELECT customer.customer_id, orderinfo.orderinfo_id, customer.fname, customer.ln
 FROM customer, orderinfo
 WHERE customer.customer_id = orderinfo.customer_id
 
+//inner Join
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.addressline, o.date_placed
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id
+
+
+
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c, orderinfo o
 WHERE c.customer_id = o.customer_id
 
 //fetch all orders from customer residing in town bingham
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id
+WHERE c.town = 'bingham'
+
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c, orderinfo o
-WHERE c.customer_id = o.customer_id
+WHERE d
 AND c.town = 'bingham'
 
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed

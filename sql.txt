@@ -100,6 +100,14 @@ AND O.orderinfo_id = ol.orderinfo_id
 AND ol.item_id = i.item_id
 AND i.sell_price >= 20
 
+fetch all customers from bingham that ordered items priced at 20 pesos or more.
+SELECT c.customer_id, c.lname, c.fname, c.town, o.orderinfo_id, ol.item_id, i.description, i.sell_price, ol.quantity
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id 
+INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON ol.item_id = i.item_id
+WHERE i.sell_price >= 20
+AND c.town = 'bingham'
+
+
 fetch all customers with an 's' on their last name and the items they ordered
 
 SELECT c.customer_id, c.lname, c.fname, o.orderinfo_id, ol.item_id, i.description, i.sell_price, ol.quantity

@@ -23,8 +23,11 @@ WHERE c.town = 'bingham'
 
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c, orderinfo o
-WHERE d
-AND c.town = 'bingham'
+WHERE c.town = 'bingham'
+
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id
+WHERE c.town = 'bingham' OR c.town = 'nicetown'
 
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c, orderinfo o

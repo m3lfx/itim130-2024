@@ -15,3 +15,8 @@ SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c, orderinfo o
 WHERE c.customer_id = o.customer_id
 AND c.town = 'bingham'
+
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
+FROM customer c, orderinfo o
+WHERE c.customer_id = o.customer_id
+AND (c.town = 'bingham' OR c.town = 'nicetown')

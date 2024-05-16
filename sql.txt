@@ -2,6 +2,22 @@ SQL Statements
 Inner Join 
 fetch customer with their orders
 
+SELECT c.customer_id, c.fname, c.lname, o.orderinfo_id, o.date_placed
+FROM customer c, orderinfo o
+WHERE c.customer_id = o.customer_id
+
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT customer.customer_id, orderinfo.orderinfo_id, customer.fname, customer.lname, customer.addressline, orderinfo.date_placed
 FROM customer, orderinfo
 WHERE customer.customer_id = orderinfo.customer_id
@@ -17,6 +33,14 @@ FROM customer c, orderinfo o
 WHERE c.customer_id = o.customer_id
 
 //fetch all orders from customer residing in town bingham
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
+FROM customer c, orderinfo o
+WHERE c.customer_id = o.customer_id
+AND (c.town = 'bingham' OR c.town = 'nicetown')
+
+
+
+
 SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.town, o.date_placed
 FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id
 WHERE c.town = 'bingham'
@@ -126,23 +150,24 @@ ORDER BY c.lname DESC
 
 INSERT 
 
-INSERT INTO customer (customer_id, title, fname, lname, addressline, town, zipcode, phone) VALUES (16, 'miss', 'reyes', 'alice', 'blc', 'taguig', '4196', '838-9889')
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'reyes', 'dave', 'blc', 'taguig', '4196', '838-9889')
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'santos', 'jenniy', 'champaca', 'taguig', '4196', '838-9889')
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'hammett', 'washington', 'taguig', '4196', NULL)
 
-INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', '' , 'washington', 'taguig', '4196', NULL)
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', NULL , 'washington', 'taguig', '4196','')
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('shoes', 800, 1000)
+INSERT INTO item (description, cost_price, sell_price) VALUES ('mouse', 800, 1000)
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('shirt', 800, 1000), ('pants', 700, 1000), ('cap', 80, 100), ('sccoks', 98, 98.90) 
+INSERT INTO item (description, cost_price, sell_price) VALUES ('pc', 800, 1000), ('keyboard', 700, 1000), ('power cord', 80, 100), ('monitor', 98, 98.90) 
 
 INSERT INTO stock (item_id, quantity) VALUES(16, 90)
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('computer', 80000, 90000);
+INSERT INTO customer (description, cost_price, sell_price) VALUES ('power supply', 8000, 9000);
 INSERT INTO stock(item_id, quantity) VALUES (last_insert_id(), 100);
 
-INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (17, now(), now(), 100)
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), now(), 100)
 
-INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (17, now(), date_add(now(), INTERVAL 3 DAY), 100)
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), date_add(now(), INTERVAL 7 DAY), 100)
+

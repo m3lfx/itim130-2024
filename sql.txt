@@ -171,3 +171,5 @@ INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES 
 
 INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), date_add(now(), INTERVAL 7 DAY), 100)
 
+INSERT INTO orderline (orderinfo_id, item_id, quantity)
+VALUE(last_insert_id(), 1, 1), (last_insert_id(), 2,3), (last_insert_id(), 23, 10) 

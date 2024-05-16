@@ -135,3 +135,5 @@ INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VA
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', '' , 'washington', 'taguig', '4196', NULL)
 
 INSERT INTO item (description, cost_price, sell_price) VALUES ('shoes', 800, 1000)
+
+INSERT INTO item (description, cost_price, sell_price) VALUES ('shirt', 800, 1000), ('pants', 700, 1000), ('cap', 80, 100), ('sccoks', 98, 98.90) 

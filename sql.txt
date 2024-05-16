@@ -41,5 +41,12 @@ SELECT i.description, ol.quantity, o.date_placed
 FROM orderinfo o, orderline ol, item i
 WHERE o.orderinfo_id = ol.orderinfo_id
 AND ol.item_id = i.item_id
+AND month(date_placed) = 3 AND year(date_placed) = 2000
+BETWEEN '2000-03-01' AND '2000-03-31'
+
+SELECT i.description, ol.quantity, o.date_placed 
+FROM orderinfo o, orderline ol, item i
+WHERE o.orderinfo_id = ol.orderinfo_id
+AND ol.item_id = i.item_id
 AND date_placed BETWEEN '2000-03-01' AND '2000-03-31'
 

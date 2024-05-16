@@ -179,3 +179,5 @@ WHERE customer_id = 23
 
 //do not do this
 UPDATE customer SET town = 'makati'
+
+UPDATE item SET sell_price = sell_price + 1 

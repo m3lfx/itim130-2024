@@ -123,3 +123,7 @@ AND O.orderinfo_id = ol.orderinfo_id
 AND ol.item_id = i.item_id
 AND c.lname LIKE "%s%"
 ORDER BY c.lname DESC
+
+INSERT 
+
+INSERT INTO customer (customer_id, title, fname, lname, addressline, town, zipcode, phone) VALUES (16, 'miss', 'reyes', 'alice', 'blc', 'taguig', '4196', '838-9889')

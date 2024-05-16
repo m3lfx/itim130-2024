@@ -127,3 +127,5 @@ ORDER BY c.lname DESC
 INSERT 
 
 INSERT INTO customer (customer_id, title, fname, lname, addressline, town, zipcode, phone) VALUES (16, 'miss', 'reyes', 'alice', 'blc', 'taguig', '4196', '838-9889')
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'santos', 'jenniy', 'champaca', 'taguig', '4196', '838-9889')

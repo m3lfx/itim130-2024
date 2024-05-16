@@ -144,3 +144,5 @@ INSERT INTO item (description, cost_price, sell_price) VALUES ('computer', 80000
 INSERT INTO stock(item_id, quantity) VALUES (last_insert_id(), 100);
 
 INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (17, now(), now(), 100)
+
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (17, now(), date_add(now(), INTERVAL 3 DAY), 100)

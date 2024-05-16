@@ -131,3 +131,7 @@ INSERT INTO customer (customer_id, title, fname, lname, addressline, town, zipco
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'santos', 'jenniy', 'champaca', 'taguig', '4196', '838-9889')
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'hammett', 'washington', 'taguig', '4196', NULL)
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', '' , 'washington', 'taguig', '4196', NULL)
+
+INSERT INTO item (description, cost_price, sell_price) VALUES ('shoes', 800, 1000)

@@ -5,3 +5,7 @@ fetch customer with their orders
 SELECT customer.customer_id, orderinfo.orderinfo_id, customer.fname, customer.lname, customer.addressline, orderinfo.date_placed
 FROM customer, orderinfo
 WHERE customer.customer_id = orderinfo.customer_id
+
+SELECT c.customer_id, o.orderinfo_id, c.fname, c.lname, c.addressline, o.date_placed
+FROM customer c, orderinfo o
+WHERE c.customer_id = o.customer_id

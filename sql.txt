@@ -173,3 +173,9 @@ INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES 
 
 INSERT INTO orderline (orderinfo_id, item_id, quantity)
 VALUE(last_insert_id(), 1, 1), (last_insert_id(), 2,3), (last_insert_id(), 23, 10) 
+
+UPDATE customer SET lname = 'mustaine', phone = '889-99-99' 
+WHERE customer_id = 23
+
+//do not do this
+UPDATE customer SET town = 'makati'

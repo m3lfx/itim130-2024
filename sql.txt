@@ -202,3 +202,6 @@ CREATE table tcust(
 	phone varchar(16)
 )
 
+#mysqlimport
+mysqlimport  –-local –-password --user=root --columns=title,fname,lname,addressline,town,zipcode,phone --fields-terminated-by=, db_sales_2024  d:/itim130-2024/tcust.csv 
+

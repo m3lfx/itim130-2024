@@ -205,3 +205,6 @@ CREATE table tcust(
 #mysqlimport
 mysqlimport  –-local –-password --user=root --columns=title,fname,lname,addressline,town,zipcode,phone --fields-terminated-by=, db_sales_2024  d:/itim130-2024/tcust.csv 
 
+INSERT INTO customer(title, fname,lname, addressline, town, zipcode, phone ) SELECT title, fname, lname, addressline,town,zipcode, phone FROM tcust WHERE phone != '';
+
+

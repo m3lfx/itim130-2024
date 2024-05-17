@@ -192,13 +192,13 @@ Mr,Duncan,Neill,21 Sheepy Lane,Hightown,NT2 1YQ,023 4245
 
 LOAD DATA LOCAL INFILE 'd:/itim130-2024/cust.txt' INTO TABLE customer FIELDS TERMINATED BY ',' (title, fname, lname, addressline, town, zipcode,phone);
 
-Create table tcust( 
+CREATE table tcust( 
     title char(4),
 	fname varchar(32),
 	lname varchar(32),
 	addressline varchar(64),
 	town varchar(32),
 	zipcode char(10),
-	phone varchar(16),
+	phone varchar(16)
 )
 

@@ -150,7 +150,7 @@ ORDER BY c.lname DESC
 
 INSERT 
 
-INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'reyes', 'dave', 'blc', 'taguig', '4196', '838-9889')
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'mustaine', 'dave', 'blc', 'taguig', '4196', '838-9889')
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'santos', 'jenniy', 'champaca', 'taguig', '4196', '838-9889')
 
@@ -158,13 +158,13 @@ INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VA
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', NULL , 'washington', 'taguig', '4196','')
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('keyboard mechanical', 800, 1000)
+INSERT INTO item (description, cost_price, sell_price) VALUES ('43 monitor', 800, 1000)
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('pc', 800, 1000), ('keyboard', 700, 1000), ('power cord', 80, 100), ('monitor', 98, 98.90) 
+INSERT INTO item (description, cost_price, sell_price) VALUES ('hdmi', 800, 1000), ('nike air', 700, 1000), ('guitar', 80, 100), ('speaker', 98, 98.90) 
 
-INSERT INTO stock (item_id, quantity) VALUES(16, 90)
+INSERT INTO stock (item_id, quantity) VALUES(27, 90), (28, 90),(29, 100) 
 
-INSERT INTO customer (description, cost_price, sell_price) VALUES ('power supply', 8000, 9000);
+INSERT INTO item (description, cost_price, sell_price) VALUES ('power supply', 8000, 9000);
 INSERT INTO stock(item_id, quantity) VALUES (last_insert_id(), 100);
 
 INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), now(), 100)

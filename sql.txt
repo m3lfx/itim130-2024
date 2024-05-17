@@ -220,7 +220,7 @@ INSERT INTO testtype VALUES ('F', '0-349-10177-9',
 'The Wasp Factory', 'The Wasp Factory',
 'The extraordinary world of Frank, a very unconventional sixteen year old. A stunning masterpiece by IAIN Banks.');
 
-INSERT INTO testtype VALUES ('F',''1-85723-457-X','Excession', 'Excession', 'A bests selling SF book showing extraordinary imagination');
+INSERT INTO testtype VALUES ('F','1-85723-457-X','Excession', 'Excession', 'A bests selling SF book showing extraordinary imagination');
 
 INSERT INTO testtype VALUES (NULL,'', 'some spaces      ', '',
 'Bound to be exceptional.');
@@ -252,5 +252,9 @@ Select ceiling(2,2), floor(2,4),round(2,2)
 Select description, MID(description,2,6), 
 UPPER(description) 
 FROM item where item_id = 6;
+
+Select ASCII('A'),
+Char(65,66,67),
+Concat('hello',0x20,0x57, 'orld');
 
 

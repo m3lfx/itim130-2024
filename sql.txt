@@ -230,7 +230,7 @@ SELECT fixedchar,vchar,vcharb FROM testtype WHERE vchar = 'EXCESSION'\G
 SELECT fixedchar,vchar,charb FROM testtype WHERE vcharb='EXCESSION'\G
 SELECT fixedchar,vchar,charb FROM testtype WHERE singlechar IS NULL\G 
 
-CREATE TABLE numType (
+CREATE TEMPORARY TABLE numType2 (
     asmallint SMALLINT,
     anint INT,
     ausint INT UNSIGNED,
@@ -256,5 +256,34 @@ FROM item where item_id = 6;
 Select ASCII('A'),
 Char(65,66,67),
 Concat('hello',0x20,0x57, 'orld');
+Create table testcolcons (
+Colnotnull INT NOT NULL,
+Colprikey INT NOT NULL PRIMARY KEY,
+Coldefault INT DEFAULT 42);
+
+INSERT INTO testcolcons(colnotnull, colprikey,coldefault)
+	values(1,1,1);
+INSERT INTO testcolcons(colnotnull, colprikey,coldefault)
+	values(2,2,NULL);
+INSERT INTO testcolcons(colnotnull, colprikey,coldefault)
+	values(NULL,3,NULL);
+INSERT INTO testcolcons(colnotnull, colprikey,coldefault)
+	values(3,2,NULL);
+INSERT INTO testcolcons(colnotnull, colprikey,coldefault)
+	values(3,3);
+
+Create table ttconst (
+    mykey1 INT,
+    mykey2 INT NOT NULL,
+    mystring varchar(15) NOT NULL,
+    CONSTRAINT cs1 UNIQUE(mykey1),
+    CONSTRAINT cs2 PRIMARY KEY (mykey2,mystring)
+    );
+
+
+Insert into ttconst values(1,2, 'Amy Jones');
+Insert into ttconst values(1,2, 'Dave jones');
+Insert into ttconst values(2,2, 'Dave jones');
+Insert into ttconst values(3,2, 'Amy Jones');
 
 

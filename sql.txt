@@ -208,3 +208,49 @@ mysqlimport  –-local –-password --user=root --columns=title,fname,lname,addr
 INSERT INTO customer(title, fname,lname, addressline, town, zipcode, phone ) SELECT title, fname, lname, addressline,town,zipcode, phone FROM tcust WHERE phone != '';
 
 
+CREATE TABLE testtype ( 
+    singlechar CHAR,
+	fixedchar CHAR(13),
+	vchar VARCHAR(128),
+	vcharb VARCHAR(128) BINARY,
+	mtext MEDIUMTEXT
+)
+
+INSERT INTO testtype VALUES ('F', '0-349-10177-9',
+'The Wasp Factory', 'The Wasp Factory',
+'The extraordinary world of Frank, a very unconventional sixteen year old. A stunning masterpiece by IAIN Banks.');
+
+INSERT INTO testtype VALUES ('F',''1-85723-457-X','Excession', 'Excession', 'A bests selling SF book showing extraordinary imagination');
+
+INSERT INTO testtype VALUES (NULL,'', 'some spaces      ', '',
+'Bound to be exceptional.');
+
+SELECT fixedchar, mtext from testtype \G
+SELECT fixedchar,vchar,vcharb FROM testtype WHERE vchar = 'EXCESSION'\G
+SELECT fixedchar,vchar,charb FROM testtype WHERE vcharb='EXCESSION'\G
+SELECT fixedchar,vchar,charb FROM testtype WHERE singlechar IS NULL\G 
+
+CREATE TABLE numType (
+    asmallint SMALLINT,
+    anint INT,
+    ausint INT UNSIGNED,
+    afloat FLOAT(2),
+    anumeric NUMERIC(5,2)
+    );
+
+INSERT INTO testype VALUES (2,2,2,2.0,2.0);
+INSERT INTO testtype VALUES (-100,-100.00,-100,123.456789, 123.456789);
+INSERT INTO testtype VALUES (300,300,300,123456789,123456789);
+INSERT INTO testtype VALUES (100000,100000,100000,-123456789,-123456789);
+
+
+Select strcmp('foo, 'foo');
+Select strcmp('foo', 'FOO');
+Select strcmp('foo', binary 'FOO');
+Select strcmp('foo', 'bar');
+Select ceiling(2,2), floor(2,4),round(2,2)
+Select description, MID(description,2,6), 
+UPPER(description) 
+FROM item where item_id = 6;
+
+

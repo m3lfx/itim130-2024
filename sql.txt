@@ -294,6 +294,9 @@ ALTER TABLE c2 CHANGE COLUMN zipcode zipcode2 char(15);
 
 ALTER TABLE c2 CHANGE COLUMN fname fname char(32) NOT NULL ;
 
+ALTER TABLE c2 ADD PRIMARY KEY (fname,lname);
+
+
 
 
 

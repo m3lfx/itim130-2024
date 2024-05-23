@@ -286,4 +286,8 @@ Insert into ttconst values(1,2, 'Dave jones');
 Insert into ttconst values(2,2, 'Dave jones');
 Insert into ttconst values(3,2, 'Amy Jones');
 
+CREATE TABLE c2 select fname,lname,zipcode FROM customer
+	WHERE (town='bingham') OR (town = 'Nicetown');
+
+
 

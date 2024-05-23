@@ -12,4 +12,12 @@ CREATE TABLE customer (
     phone varchar(16),
 );
 
+CREATE TABLE item (
+    item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    description varchar(200) NOT NULL,
+    cost_price decimal(7,2),
+    sell_price decimal(7,2)
+);
+
+
 

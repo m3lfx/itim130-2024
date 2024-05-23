@@ -71,6 +71,10 @@ INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES 
 
 INSERT INTO orderline(orderinfo_id, item_id, quantity) VALUES(last_insert_id(), 1,1), (last_insert_id(), 2,1);
 
+INSERT INTO barcode(barcode_ean, item_id) VALUES ('123456789abcd', 1), ('123456789tttt', 1), ('123456789efgh', 1)
+
+
+
 
 
 

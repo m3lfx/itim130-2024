@@ -62,8 +62,14 @@ INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 8);
 INSERT INTO item (description, cost_price, sell_price) VALUES('computer', 2000, 3000);
 INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 10);
 
-INSERT INTO item (description, cost_price, sell_price) VALUES('power supplu', 3000, 4000);
+INSERT INTO item (description, cost_price, sell_price) VALUES('power supply', 3000, 4000);
 INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 9);
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES('miss', 'jane', 'doe', 'blc taguig', 'taguig city', '1890', '8998776');
+
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (last_insert_id(), now(), now(), 100);
+
+INSERT INTO orderline(orderinfo_id, item_id, quantity) VALUES(last_insert_id(), 1,1), (last_insert_id(), 2,1);
 
 
 

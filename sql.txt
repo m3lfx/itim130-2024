@@ -164,26 +164,26 @@ INSERT INTO item (description, cost_price, sell_price) VALUES ('hdmi', 800, 1000
 
 INSERT INTO stock (item_id, quantity) VALUES(27, 90), (28, 90),(29, 100) 
 
-INSERT INTO item (description, cost_price, sell_price) VALUES ('power supply', 8000, 9000);
+INSERT INTO item (item_id,description, cost_price, sell_price) VALUES (28, 'wireless mouse', 800, 890);
 INSERT INTO stock(item_id, quantity) VALUES (last_insert_id(), 100);
 
-INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), now(), 100)
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (33, now(), now(), 100)
 
-INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (22, now(), date_add(now(), INTERVAL 7 DAY), 100)
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (333, now(), date_add(now(), INTERVAL 7 DAY), 100)
 
 INSERT INTO orderline (orderinfo_id, item_id, quantity)
-VALUE(last_insert_id(), 1, 1), (last_insert_id(), 2,3), (last_insert_id(), 23, 10) 
+VALUE(last_insert_id(), 28, 10), (last_insert_id(), 29,3), (last_insert_id(), 30, 10) 
 
-UPDATE customer SET lname = 'mustaine', phone = '889-99-99' 
-WHERE customer_id = 23
+UPDATE customer SET lname = 'land', phone = '889-99-99' 
+WHERE customer_id = 36
 
 //do not do this
-UPDATE customer SET town = 'makati'
+UPDATE customer SET town = 'alabang'
 
-UPDATE item SET sell_price = sell_price + 1 
+UPDATE item SET sell_price = sell_price + 10 where item_id = 30
 
 DELETE FROM item where item_id = 21;
-DELETE FROM item where item_id IN (14, 15, 16)
+DELETE FROM item where item_id IN (28, 29, 30)
 
 #cust.txt
 Miss,Emma,Neill,21 Sheepy Lane,Hightown,NT2 1YQ,023 4245
@@ -230,7 +230,7 @@ SELECT fixedchar,vchar,vcharb FROM testtype WHERE vchar = 'EXCESSION'\G
 SELECT fixedchar,vchar,charb FROM testtype WHERE vcharb='EXCESSION'\G
 SELECT fixedchar,vchar,charb FROM testtype WHERE singlechar IS NULL\G 
 
-CREATE TEMPORARY TABLE numType2 (
+CREATE TEMPORARY TABLE numType (
     asmallint SMALLINT,
     anint INT,
     ausint INT UNSIGNED,

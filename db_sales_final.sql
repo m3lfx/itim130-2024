@@ -38,6 +38,11 @@ CREATE TABLE orderline (
     CONSTRAINT item_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
 );
 
+CREATE TABLE stock (
+    item_id INT NOT NULL PRIMARY KEY,
+    quantity TINYINT,
+    CONSTRAINT stock_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+
 )
 
 

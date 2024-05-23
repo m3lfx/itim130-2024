@@ -290,5 +290,10 @@ CREATE TABLE c2 select fname,lname,zipcode FROM customer
 	WHERE (town='bingham') OR (town = 'Nicetown');
 ALTER TABLE c2 ADD COLUMN last_contact date AFTER zipcode;
 
+ALTER TABLE c2 CHANGE COLUMN zipcode zipcode2 char(15);
+
+ALTER TABLE c2 CHANGE COLUMN fname fname char(32) NOT NULL ;
+
+
 
 

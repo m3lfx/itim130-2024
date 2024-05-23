@@ -51,6 +51,24 @@ CREATE TABLE barcode (
     CONSTRAINT barcode_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
 );
 
+INSERT INTO item (description, cost_price, sell_price) VALUES('watch', 100, 200);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 10);
+INSERT INTO item (description, cost_price, sell_price) VALUES('panyo', 10, 40);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 5);
+
+INSERT INTO item (description, cost_price, sell_price) VALUES('computer', 1000, 2000);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 20);
+INSERT INTO item (description, cost_price, sell_price) VALUES('monitor', 10, 40);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 50);
+
+INSERT INTO item (description, cost_price, sell_price) VALUES('mouse', 50, 70);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 60);
+
+NSERT INTO item (description, cost_price, sell_price) VALUES('keyboard', 70, 80);
+INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 80);
+
+
+
 
 
 

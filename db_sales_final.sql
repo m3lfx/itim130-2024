@@ -71,7 +71,16 @@ INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 80);
 --transaction SQL statements
 INSERT INTO customer(title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'land', 'blc taguig', 'taguig', '4196', '8389889');
 INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (last_insert_id(), now(), now(), 100);
+
 INSERT INTO orderline(orderinfo_id, item_id, quantity) VALUES(last_insert_id(), 1, 1), (last_insert_id(), 2, 1);
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'mustaine', 'dave', 'blc', 'taguig', '4196', '838-9889');
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'santos', 'jenniy', 'champaca', 'taguig', '4196', '838-9889');
+
+INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'hammett', 'washington', 'taguig', '4196', NULL);
+
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (1, now(), date_add(now(), INTERVAL 7 DAY), 100)
 
 
 

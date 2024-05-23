@@ -19,5 +19,30 @@ CREATE TABLE item (
     sell_price decimal(7,2)
 );
 
+CREATE TABLE stock (
+    item_id INT NOT NULL PRIMARY KEY,
+    quantity INT,
+    CONSTRAINT stock_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+);
+
+CREATE TABLE barcode (
+    barcode_ean char(13) NOT NULL PRIMARY KEY,
+    item_id INT NOT NULL,
+    INDEX(item_id),
+    CONSTRAINT barcode_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+);
+
+CREATE TABLE orderinfo (
+    orderinfo_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    date_placed date NOT NULL,
+    date_shipped date,
+    shipping decimal(7,2),
+    INDEX(customer_id),
+    CONSTRAINT orderino_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+
+),
+
+
 
 

@@ -53,6 +53,18 @@ CREATE TABLE orderline (
     CONSTRAINT item_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
 );
 
+INSERT INTO item (description, cost_price, sell_price) VALUES('computer', 2000, 3000);
+INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 10);
+
+INSERT INTO item (description, cost_price, sell_price) VALUES('laptop', 4000, 5000);
+INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 8);
+
+INSERT INTO item (description, cost_price, sell_price) VALUES('computer', 2000, 3000);
+INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 10);
+
+INSERT INTO item (description, cost_price, sell_price) VALUES('power supplu', 3000, 4000);
+INSERT INTO stock (item_id, quantity) VALUES (last_insert_id(), 9);
+
 
 
 

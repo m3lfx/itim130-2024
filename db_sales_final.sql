@@ -34,7 +34,7 @@ CREATE TABLE orderline (
     item_id INT NOT NULL,
     quantity TINYINT,
     PRIMARY KEY(orderinfo_id, item_id),
-    CONSTRAINT orderline_orderinfo_id_fk FOREIGN KEY (orderinfo_id) REFERENCES orderinfo(orderinfo_id) );
+    CONSTRAINT orderline_orderinfo_id_fk FOREIGN KEY (orderinfo_id) REFERENCES orderinfo(orderinfo_id),
     CONSTRAINT item_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
 
 )

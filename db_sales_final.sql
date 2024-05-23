@@ -27,7 +27,7 @@ CREATE TABLE orderinfo (
     date_shipped DATE,
     shipping numeric(7,2),
     INDEX(customer_id),
-    CONSTRAINT orderinfo_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+    CONSTRAINT orderinfo_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE
 );
 
 CREATE TABLE orderline (
@@ -35,21 +35,21 @@ CREATE TABLE orderline (
     item_id INT NOT NULL,
     quantity TINYINT,
     PRIMARY KEY(orderinfo_id, item_id),
-    CONSTRAINT orderline_orderinfo_id_fk FOREIGN KEY (orderinfo_id) REFERENCES orderinfo(orderinfo_id),
-    CONSTRAINT item_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+    CONSTRAINT orderline_orderinfo_id_fk FOREIGN KEY (orderinfo_id) REFERENCES orderinfo(orderinfo_id) ON DELETE CASCADE,
+    CONSTRAINT item_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id) ON DELETE CASCADE
 );
 
 CREATE TABLE stock (
     item_id INT NOT NULL PRIMARY KEY,
     quantity TINYINT,
-    CONSTRAINT stock_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+    CONSTRAINT stock_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id) ON DELETE CASCADE
 );
 
 CREATE TABLE barcode (
     barcode_ean char(13) NOT NULL PRIMARY KEY,
     item_id INT NOT NULL,
     INDEX(item_id),
-    CONSTRAINT barcode_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id)
+    CONSTRAINT barcode_item_id_fk FOREIGN KEY (item_id) REFERENCES item(item_id) ON DELETE CASCADE
 );
 
 INSERT INTO item (description, cost_price, sell_price) VALUES('watch', 100, 200);

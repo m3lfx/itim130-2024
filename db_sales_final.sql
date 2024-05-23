@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS db_sales_final2024_s;
 CREATE DATABASE db_sales_final2024_s;
 USE db_sales_final2024_s;
 
@@ -64,8 +65,10 @@ INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 50);
 INSERT INTO item (description, cost_price, sell_price) VALUES('mouse', 50, 70);
 INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 60);
 
-NSERT INTO item (description, cost_price, sell_price) VALUES('keyboard', 70, 80);
+INSERT INTO item (description, cost_price, sell_price) VALUES('keyboard', 70, 80);
 INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 80);
+
+
 
 
 

@@ -68,6 +68,12 @@ INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 60);
 INSERT INTO item (description, cost_price, sell_price) VALUES('keyboard', 70, 80);
 INSERT INTO stock(item_id, quantity) VALUES(last_insert_id(), 80);
 
+--transaction SQL statements
+INSERT INTO customer(title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'land', 'blc taguig', 'taguig', '4196', '8389889');
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (last_insert_id(), now(), now(), 100);
+INSERT INTO orderline(orderinfo_id, item_id, quantity) VALUES(last_insert_id(), 1, 1), (last_insert_id(), 2, 1);
+
+
 
 
 

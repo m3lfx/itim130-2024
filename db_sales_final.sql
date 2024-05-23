@@ -19,3 +19,16 @@ CREATE TABLE item (
     cost_price decimal(5,2)
 );
 
+CREATE TABLE orderinfo (
+    orderinfo_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    date_placed DATE NOT NULL,
+    date_shipped DATE,
+    shipping numeric(7,2),
+    INDEX(customer_id),
+    CONSTRAINT orderinfo_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+
+);
+
+
+

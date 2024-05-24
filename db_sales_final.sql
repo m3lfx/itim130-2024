@@ -80,7 +80,7 @@ INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VA
 
 INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('mr', 'kirk', 'hammett', 'washington', 'taguig', '4196', NULL);
 
-INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (1, now(), date_add(now(), INTERVAL 7 DAY), 100)
+INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES (1, now(), date_add(now(), INTERVAL 7 DAY), 100);
 
 
 

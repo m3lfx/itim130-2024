@@ -290,11 +290,27 @@ CREATE TABLE c1 select fname,lname,zipcode FROM customer
 	WHERE (town='bingham') OR (town = 'Nicetown');
 ALTER TABLE c1 ADD COLUMN last_contact date AFTER zipcode;
 
-ALTER TABLE c2 CHANGE COLUMN zipcode zipcode2 char(15);
+ALTER TABLE c1 CHANGE COLUMN zipcode zipcode2 char(15);
 
-ALTER TABLE c2 CHANGE COLUMN fname fname char(32) NOT NULL ;
+ALTER TABLE c1 CHANGE COLUMN fname fname char(32) NOT NULL ;
 
 ALTER TABLE c2 ADD PRIMARY KEY (fname,lname);
+
+SELECT COUNT(*) AS total FROM customer WHERE town='Bingham';
+
+
+SELECT COUNT(*), town FROM customer GROUP BY town;
+
+SELECT COUNT(*), count(*),lname,  town FROM customer GROUP BY town, lname;
+
+SELECT COUNT(*) AS total, town FROM customer GROUP BY town
+HAVING total > 1;
+
+SELECT COUNT(*), lname, town 
+FROM customer 
+WHERE town <> 'tenement'
+GROUP BY lname, town
+HAVING COUNT(*) > 1
 
 
 

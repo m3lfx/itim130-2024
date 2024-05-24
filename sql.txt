@@ -334,7 +334,7 @@ SELECT item_id, SUM(quantity) as 'total units sold'
 FROM orderline
 GROUP BY item_id
 HAVING SUM(quantity) > 1
-ORDER BY sum(quantity) DESC
+ORDER BY SUM(quantity) DESC
 
 number of items sold this may 2023
 what is the total amount to be paid by order number 1

@@ -341,8 +341,10 @@ GROUP BY i.description
 ORDER BY SUM(quantity) DESC
 
 
-number of items sold this may 2024
-
+total number of items sold this may 2024
+SELECT  monthname(date_placed), sum(quantity) AS 'total items sold'
+FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
+WHERE date_placed BETWEEN  '2024-05-01' AND '2024-05-31'
 
 what is the total amount to be paid by order number 1
 how many items were sold for each month

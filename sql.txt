@@ -352,7 +352,21 @@ FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INN
 WHERE o.date_placed BETWEEN  '2024-05-01' AND '2024-05-31'
 GROUP BY ol.item_id
 
-what is the total amount to be paid by order number 1
+what is the total amount to be paid for order number 1
+4 1 *  4000.00
+7 1  * 2.49
+9 1 * 9.95
+
+select 4000 + 2.49 + 9.95
+
+select o.orderinfo_id, i.item_id, ol.quantity, i.sell_price
+FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON i.item_id = ol.item_id
+WHERE o.orderinfo_id = 1;
+
+
+
+
+
 how many items were sold for each month
 how many customers that bought tissue
 what is the total profit of the shop

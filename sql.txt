@@ -386,6 +386,7 @@ SELECT  ol.item_id, i.description, monthname(o.date_placed), sum(quantity) AS 't
 FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON i.item_id = ol.item_id
 WHERE o.date_placed BETWEEN  '2024-05-01' AND '2024-05-31'
 GROUP BY ol.item_id
+HAVING sum(quantity) > 1
 
 what is the total amount to be paid for order number 1
 4 1 *  4000.00

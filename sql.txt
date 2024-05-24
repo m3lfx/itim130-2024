@@ -306,11 +306,24 @@ SELECT COUNT(*), count(*),lname,  town FROM customer GROUP BY town, lname;
 SELECT COUNT(*) AS total, town FROM customer GROUP BY town
 HAVING total > 1;
 
+
+
 SELECT COUNT(*), lname, town 
 FROM customer 
 WHERE town <> 'tenement'
 GROUP BY lname, town
 HAVING COUNT(*) > 1
+how many orders were made for the month of may 2024
+how many items have cost price is greater than 100
+how many items were sold
+number of items sold this may 2023
+what is the total amount to be paid by order number 1
+how many items were sold for each month
+how many customers that bought tissue
+what is the total profit of the shop
+get the total profit for each month of 2023
+get the profit for each item
+HOW much did our customers spent on our shop
 
 
 

@@ -359,7 +359,7 @@ what is the total amount to be paid for order number 1
 
 select 4000 + 2.49 + 9.95
 
-select o.orderinfo_id, i.item_id, ol.quantity, i.sell_price
+select o.orderinfo_id,   sum(ol.quantity * i.sell_price) AS total
 FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON i.item_id = ol.item_id
 WHERE o.orderinfo_id = 1;
 

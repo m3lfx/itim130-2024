@@ -338,6 +338,17 @@ how many items were sold
 SELECT SUM(quantity) as 'total items sold' FROM orderline;
 
 get the total units sold for each item
+
+SELECT ol.item_id, i.description, sum(quantity)
+FROM orderline ol INNER JOIN item i ON ol.item_id = i.item_id 
+GROUP BY item_id;
+
+
+
+
+
+
+
 SELECT i.item_id, i.description, SUM(quantity) as 'total units sold' 
 FROM orderline ol INNER JOIN item i ON i.item_id = ol.item_id 
 GROUP BY i.item_id
@@ -350,6 +361,13 @@ ORDER BY SUM(quantity) DESC
 
 
 total number of items sold this may 2024
+select monthname(date_placed), sum(ol.quantity)
+from orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id
+where date_placed BETWEEN '2024-05-01' AND '2024-05-31'
+
+
+
+
 SELECT  monthname(date_placed), sum(quantity) AS 'total items sold'
 FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
 WHERE date_placed BETWEEN  '2024-05-01' AND '2024-05-31'

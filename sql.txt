@@ -335,8 +335,15 @@ FROM orderline ol INNER JOIN item i ON i.item_id = ol.item_id
 GROUP BY i.item_id
 ORDER BY SUM(quantity) DESC
 
+SELECT  i.description, SUM(quantity) as 'total units sold' 
+FROM orderline ol INNER JOIN item i ON i.item_id = ol.item_id 
+GROUP BY i.description
+ORDER BY SUM(quantity) DESC
+
 
 number of items sold this may 2024
+
+
 what is the total amount to be paid by order number 1
 how many items were sold for each month
 how many customers that bought tissue

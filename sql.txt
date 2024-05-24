@@ -327,6 +327,8 @@ GROUP BY month(date_placed);
 how many items have cost price is greater than 10
 SELECT COUNT(*) AS 'items cost' from item where cost_price > 10;
 how many items were sold
+SELECT SUM(quantity) as 'total items sold' FROM orderline;
+
 number of items sold this may 2023
 what is the total amount to be paid by order number 1
 how many items were sold for each month

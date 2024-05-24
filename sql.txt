@@ -313,7 +313,14 @@ FROM customer
 WHERE town <> 'tenement'
 GROUP BY lname, town
 HAVING COUNT(*) > 1
+how many orders were placed for each month
+SELECT count(orderinfo_id) AS 'total orders', monthname(date_placed)
+FROM orderinfo
+GROUP BY month(date_placed)
 how many orders were made for the month of may 2024
+
+
+
 SELECT count(*) as 'total orders per month', monthname(date_placed)
 FROM orderinfo
 WHERE month(date_placed) = 5

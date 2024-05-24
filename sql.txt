@@ -405,13 +405,16 @@ select o.orderinfo_id,   sum(ol.quantity * i.sell_price) AS total
 FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON i.item_id = ol.item_id
 WHERE o.orderinfo_id = 1;
 
+what is the total profit of the shop
+select sum(ol.quantity * i.sell_price) AS `total sales`
+FROM orderline ol INNER JOIN item i ON i.item_id = ol.item_id
 
 
 
 
 how many items were sold for each month
 how many customers that bought tissue
-what is the total profit of the shop
+
 get the total profit for each month of 2023
 get the profit for each item
 HOW much did our customers spent on our shop

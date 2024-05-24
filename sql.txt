@@ -326,10 +326,11 @@ FROM orderinfo
 WHERE month(date_placed) = 5
 GROUP BY month(date_placed);
 
-count orders per month
+count orders per month with total number of orders greater than 1
 SELECT count(*) as 'total orders per month', monthname(date_placed)
 FROM orderinfo
-GROUP BY month(date_placed);
+GROUP BY month(date_placed)
+HAVING count(*) > 2;
 
 how many items have cost price is greater than 10
 SELECT COUNT(*) AS 'items cost' from item where cost_price > 10;

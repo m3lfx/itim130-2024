@@ -346,6 +346,12 @@ SELECT  monthname(date_placed), sum(quantity) AS 'total items sold'
 FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
 WHERE date_placed BETWEEN  '2024-05-01' AND '2024-05-31'
 
+total units sold for each item for the month of may
+SELECT  ol.item_id, i.description, monthname(o.date_placed), sum(quantity) AS 'total items sold'
+FROM orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id INNER JOIN item i ON i.item_id = ol.item_id
+WHERE o.date_placed BETWEEN  '2024-05-01' AND '2024-05-31'
+GROUP BY ol.item_id
+
 what is the total amount to be paid by order number 1
 how many items were sold for each month
 how many customers that bought tissue

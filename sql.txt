@@ -500,5 +500,35 @@ Dim title = TextBox2.Text
         Label1.Text = sql
         conn.Close()
 
+Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim customerId = Val(TextBox1.Text)
+        Dim title = TextBox2.Text
+        Dim firstName = TextBox3.Text
+        Dim lastName = TextBox4.Text
+        Dim address = TextBox5.Text
+        Dim town = TextBox6.Text
+        Dim zip = TextBox7.Text
+        Dim phone = TextBox8.Text
+        Try
+            conn.Open()
+            sql = $"UPDATE customer SET title = '{title}', lname = '{lastName}', fname = '{firstName}', addressline = '{address}', town = '{town}', zipcode = '{zip}', phone= '{phone}' WHERE customer_id = {customerId}"
+            Label1.Text = sql
+            dbcomm = New MySqlCommand(sql, conn)
+            Dim i As Integer = dbcomm.ExecuteNonQuery
+
+            If (i > 0) Then
+                MsgBox("record updated")
+            Else
+                MsgBox("record not saved")
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+        conn.Close()
+
+    End Sub
+
 
 

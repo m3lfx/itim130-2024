@@ -443,6 +443,8 @@ INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id
 INNER JOIN item i ON i.item_id = ol.item_id
 WHERE c.customer_id = 3
 GROUP BY c.customer_id
+
+
 ORDER BY total DESC
 
 LEFT OUTER JOIN
@@ -552,5 +554,24 @@ Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Clic
             MsgBox(ex.Message)
         End Try
     End Sub
+form load
+	Try
+            conn.Open()
+            sql = "select * from customer"
+            dbcomm = New MySqlCommand(sql, conn)
+            DataAdapter1 = New MySqlDataAdapter(sql, conn)
+            ds = New DataSet()
+            DataAdapter1.Fill(ds, "customer1")
+            DataGridView1.DataSource = ds
+            DataGridView1.DataMember = "customer1"
+            DataGridView1.Update()
+            DataGridView1.Refresh()
+
+        Catch ex As Exception
+            MsgBox("Error in collecting data from Database. Error is :" & ex.Message)
+
+        End Try
+     
+        conn.Close()
 
 

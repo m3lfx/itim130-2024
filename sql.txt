@@ -465,6 +465,8 @@ Dim customer_id As Integer
             conn.Open()
             customer_id = Val(TextBox1.Text)
             sql = "SELECT * FROM customer WHERE customer_id = " & customer_id
+			dbcomm = New MySqlCommand(sql, conn)
+            dbread = dbcomm.ExecuteReader()
         Catch ex As Exception
             conn.Close()
         End Try

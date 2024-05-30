@@ -436,6 +436,13 @@ GROUP BY i.description
 ORDER BY total DESC
 
 HOW much did our customers spent on our shop
+SELECT c.customer_id, concat(c.fname, " ", c.lname), sum(ol.quantity * i.sell_price) AS 'total' 
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id 
+INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
+INNER JOIN item i ON i.item_id = ol.item_id
+GROUP BY c.customer_id
+ORDER BY total DESC
+
 
 
 

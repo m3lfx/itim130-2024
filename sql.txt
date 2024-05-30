@@ -421,7 +421,15 @@ INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id
 INNER JOIN item i ON i.item_id = ol.item_id
 WHERE i.description LIKE '%tissue%'
 
-get the total profit for each month of 2023
+get the total profit for each month of 2024
+SELECT MONTHNAME(o.date_placed), sum(ol.quantity * i.sell_price)
+FROM  orderinfo o INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
+INNER JOIN item i ON i.item_id = ol.item_id
+WHERE YEAR(date_placed) = 2024
+GROUP BY MONTH(o.date_placed)
+
+
+
 
 
 

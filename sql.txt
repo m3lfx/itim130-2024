@@ -445,8 +445,12 @@ GROUP BY c.customer_id
 ORDER BY total DESC
 
 LEFT OUTER JOIN
-select i.description, s.quantity, i.cost_price
-from item i LEFT OUTER JOIN stock s ON i.item_id = s.item_id AND i.cost_price > 9
+select i.item_id, i.description, s.quantity, i.cost_price
+from item i LEFT OUTER JOIN stock s ON i.item_id = s.item_id AND s.quantity > 10
+
+fetch all customers with or without orders
+select c.customer_id, c.fname, o.date_placed
+FROM customer c LEFT OUTER JOIN orderinfo o ON c.customer_id = o.customer_id
 
 
 

@@ -415,6 +415,13 @@ FROM orderinfo o INNER JOIN  orderline ol ON o.orderinfo_id = ol.orderinfo_id
 GROUP BY month(date_placed)
 
 how many customers that bought tissue
+SELECT count(c.fname), i.description
+FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id 
+INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
+INNER JOIN item i ON i.item_id = ol.item_id
+WHERE i.description LIKE '%tissue%'
+
+
 
 get the total profit for each month of 2023
 get the profit for each item

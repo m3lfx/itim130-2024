@@ -485,8 +485,17 @@ Dim title = TextBox2.Text
         Try
             conn.Open()
             sql = "INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('" & title & "','" & firstName & "','" & lastName & "','" & address & "','" & town & "','" & zip & "','" & phone & "')"
-        Catch ex As MySqlException
+            dbcomm = New MySqlCommand(sql, conn)
+            Dim i As Integer = dbcomm.ExecuteNonQuery
 
+            If (i > 0) Then
+                MsgBox("record saved")
+            Else
+                MsgBox("record not saved")
+
+            End If
+        Catch ex As MySqlException
+            MsgBox("customer not created")
         End Try
         Label1.Text = sql
         conn.Close()

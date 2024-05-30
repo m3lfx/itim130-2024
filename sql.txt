@@ -452,6 +452,21 @@ fetch all customers with or without orders
 select c.customer_id, c.fname, o.date_placed
 FROM customer c LEFT OUTER JOIN orderinfo o ON c.customer_id = o.customer_id
 
+Dim conn As MySqlConnection = New MySqlConnection("Data Source=localhost;Database=db_sales_2024;User=root;Password=;")
+    Public dbconn As New MySqlConnection
+    Public sql As String
+    Public dbcomm As MySqlCommand
+    Public dbread As MySqlDataReader
+    Public DataAdapter1 As MySqlDataAdapter
+    Public ds As DataSet
+	//button
+Dim customer_id As Integer
+        Try
+            conn.Open()
+            customer_id = Val(TextBox1.Text)
+        Catch ex As Exception
+            conn.Close()
+        End Try
 
 
 

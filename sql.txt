@@ -421,9 +421,12 @@ INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id
 INNER JOIN item i ON i.item_id = ol.item_id
 WHERE i.description LIKE '%tissue%'
 
-
-
 get the total profit for each month of 2023
+
+
+
+
+
 get the profit for each item
 HOW much did our customers spent on our shop
 

@@ -467,11 +467,29 @@ Dim customer_id As Integer
             sql = "SELECT * FROM customer WHERE customer_id = " & customer_id
 			dbcomm = New MySqlCommand(sql, conn)
             dbread = dbcomm.ExecuteReader()
+			dbread.Read()
+            TextBox2.Text = dbread("customer_id")
+            TextBox3.Text = dbread("title")
+            TextBox4.Text = dbread("lname")
         Catch ex As Exception
             conn.Close()
         End Try
 
+Dim title = TextBox2.Text
+        Dim firstName = TextBox3.Text
+        Dim lastName = TextBox4.Text
+        Dim address = TextBox5.Text
+        Dim town = TextBox6.Text
+        Dim zip = TextBox7.Text
+        Dim phone = TextBox8.Text
+        Try
+            conn.Open()
+            sql = "INSERT INTO customer (title, fname, lname, addressline, town, zipcode, phone) VALUES ('" & title & "','" & firstName & "','" & lastName & "','" & address & "','" & town & "','" & zip & "','" & phone & "')"
+        Catch ex As MySqlException
 
+        End Try
+        Label1.Text = sql
+        conn.Close()
 
 
 

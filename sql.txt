@@ -464,6 +464,7 @@ Dim customer_id As Integer
         Try
             conn.Open()
             customer_id = Val(TextBox1.Text)
+            sql = "SELECT * FROM customer WHERE customer_id = " & customer_id
         Catch ex As Exception
             conn.Close()
         End Try

@@ -440,8 +440,12 @@ SELECT c.customer_id, concat(c.fname, " ", c.lname), sum(ol.quantity * i.sell_pr
 FROM customer c INNER JOIN orderinfo o ON c.customer_id = o.customer_id 
 INNER JOIN orderline ol ON o.orderinfo_id = ol.orderinfo_id 
 INNER JOIN item i ON i.item_id = ol.item_id
+WHERE c.customer_id = 3
 GROUP BY c.customer_id
 ORDER BY total DESC
+
+LEFT OUTER JOIN
+select i.description, s.quantity from item i LEFT OUTER JOIN stock s ON i.item_id = s.item_id
 
 
 

@@ -530,5 +530,26 @@ Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Clic
 
     End Sub
 
+Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Try
+            conn.Open()
+            Dim id As Integer = InputBox("enter customer id to be deleted", "delete record")
+            Dim ans = MessageBox.Show("do you want to delete this record?", "record deleted", MessageBoxButtons.YesNoCancel)
+            If ans = DialogResult.Yes Then
+                sql = $"DELETE FROM customer WHERE customer_id = {id}"
+                dbcomm = New MySqlCommand(sql, conn)
+                Dim i As Integer = dbcomm.ExecuteNonQuery
+
+                If (i > 0) Then
+                    MsgBox("record deleted")
+                Else
+                    MsgBox("record not deleted")
+
+                End If
+            End If
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 
 

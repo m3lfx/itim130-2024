@@ -595,3 +595,11 @@ Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         conn.Close()
     End Sub
+
+
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim description As String = TextBox1.Text
+        Dim costPrice As Decimal = TextBox2.Text
+        Dim sellPrice As Decimal = TextBox3.Text
+        Dim stock As Integer = NumericUpDown1.Value
+    End Sub

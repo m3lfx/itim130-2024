@@ -680,3 +680,82 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         End Try
         conn.Close()
     End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim itemId = Val(TextBox7.Text)
+        Dim description = TextBox1.Text
+        Dim costPrice = TextBox2.Text
+        Dim sellPrice = TextBox3.Text
+        Dim quantity = NumericUpDown1.Value
+        Dim i As Integer = 0
+
+        Try
+            conn.Open()
+            sql = $"UPDATE item SET description = '{description}', cost_price = {costPrice}, sell_price = {sellPrice} WHERE item_id = {itemId} "
+
+            dbcomm = New MySqlCommand(sql, conn)
+            i = dbcomm.ExecuteNonQuery
+
+            If (i > 0) Then
+                MsgBox("record updated")
+            Else
+                MsgBox("record not saved")
+
+            End If
+
+            sql = $"UPDATE stock SET quantity = {quantity}  WHERE item_id = {itemId} "
+
+            dbcomm = New MySqlCommand(sql, conn)
+            i = dbcomm.ExecuteNonQuery
+
+            If (i > 0) Then
+                MsgBox("record updated")
+            Else
+                MsgBox("record not saved")
+
+            End If
+
+
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        End Try
+        conn.Close()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim itemId = Val(TextBox7.Text)
+        Dim i As Integer
+        Try
+            conn.Open()
+
+            Dim ans = MessageBox.Show("do you want to delete this record?", "record deleted", MessageBoxButtons.YesNoCancel)
+            If ans = DialogResult.Yes Then
+                sql = $"DELETE FROM stock WHERE item_id = {itemId}"
+                dbcomm = New MySqlCommand(sql, conn)
+                i = dbcomm.ExecuteNonQuery
+
+                If (i > 0) Then
+                    MsgBox("stock deleted")
+                Else
+                    MsgBox("stock not deleted")
+
+                End If
+                sql = $"DELETE FROM item WHERE item_id = {itemId}"
+                dbcomm = New MySqlCommand(sql, conn)
+                i = dbcomm.ExecuteNonQuery
+
+                If (i > 0) Then
+                    MsgBox("record deleted")
+                Else
+                    MsgBox("record not deleted")
+
+                End If
+            End If
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+            conn.Close()
+
+        End Try
+        conn.Close()
+
+    End Sub

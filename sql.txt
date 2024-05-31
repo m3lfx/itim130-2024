@@ -603,3 +603,37 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         Dim sellPrice As Decimal = TextBox3.Text
         Dim stock As Integer = NumericUpDown1.Value
     End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim i As Integer = 0
+        Dim description As String = TextBox1.Text
+        Dim costPrice As Decimal = TextBox2.Text
+        Dim sellPrice As Decimal = TextBox3.Text
+        Dim quantity As Integer = NumericUpDown1.Value
+
+        Try
+            conn.Open()
+            sql = $"INSERT INTO item (description, cost_price, sell_price) VALUES('{description}', {costPrice}, {sellPrice})"
+            dbcomm = New MySqlCommand(sql, conn)
+            i = dbcomm.ExecuteNonQuery
+            If (i > 0) Then
+                MsgBox("record saved")
+            Else
+                MsgBox("record not saved")
+
+            End If
+            sql = $"INSERT INTO stock (item_id, quantity) VALUES(last_insert_id(), {quantity})"
+            dbcomm = New MySqlCommand(sql, conn)
+            i = dbcomm.ExecuteNonQuery
+            If (i > 0) Then
+                MsgBox("record saved")
+            Else
+                MsgBox("record not saved")
+
+            End If
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub

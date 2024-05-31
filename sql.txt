@@ -637,3 +637,24 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
             MsgBox(ex.Message)
         End Try
     End Sub
+
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim itemName = TextBox4.Text
+
+        Try
+            conn.Open()
+            sql = $"SELECT * FROM item i INNER JOIN stock s ON i.item_id = s.item_id WHERE i.description = '{itemName}'"
+            dbcomm = New MySqlCommand(sql, conn)
+            dbread = dbcomm.ExecuteReader()
+            dbread.Read()
+            TextBox1.Text = dbread("description")
+            TextBox2.Text = dbread("cost_price")
+            TextBox3.Text = dbread("sell_price")
+            NumericUpDown1.Value = dbread("quantity")
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+            conn.Close()
+
+        End Try
+        conn.Close()
+    End Sub

@@ -919,3 +919,6 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
 
                 End If
             Next
+
+//full row select
+DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect

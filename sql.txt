@@ -923,8 +923,8 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
 //full row select
 DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
 
- Private Sub txtQty_TextChanged(sender As Object, e As EventArgs) Handles txtQty.TextChanged
-        If Val(txtQty.Text) > quantity Then
+Private Sub txtQty_TextChanged(sender As Object, e As EventArgs) Handles txtQty.TextChanged
+        If ((Val(txtQty.Text) > quantity) Or (Val(txtQty.Text) <= 0)) Then
             MsgBox("exceeds stock quantity")
         End If
     End Sub

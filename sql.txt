@@ -874,6 +874,17 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
                 MsgBox("record not saved")
 
             End If
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                sql = $"INSERT INTO orderline (orderinfo_id, item_id, quantity) VALUES(last_insert_id(), {row.Cells("item_id").Value}, {row.Cells("quantity").Value} )"
+                Label1.Text = sql
+                dbcomm = New MySqlCommand(sql, conn)
+                i = dbcomm.ExecuteNonQuery
+                If (i > 0) Then
+                    MsgBox("record saved")
+                Else
+                    MsgBox("record not saved")
+
+                End If
         Catch ex As MySqlException
             MsgBox(ex.Message)
             conn.Close()
@@ -882,9 +893,4 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
             conn.Close()
         End Try
         conn.Close()
-
-
-
-
-
     End Sub

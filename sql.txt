@@ -857,3 +857,34 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
             MessageBox.Show("Select 1 row before you hit Delete")
         End If
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim i As Integer = 0
+        Dim customerId As Integer = Val(cbocid.Text)
+
+        Try
+            sql = $"INSERT INTO orderinfo (customer_id, date_placed, date_shipped, shipping) VALUES({customerId}, now(), '{Convert.ToDateTime(DateTimePicker1.Value).ToString("yyyy-MM-dd")}', {Val(txtShip.Text)} )"
+            conn.Open()
+
+            dbcomm = New MySqlCommand(sql, conn)
+            i = dbcomm.ExecuteNonQuery
+            If (i > 0) Then
+                MsgBox("record saved")
+            Else
+                MsgBox("record not saved")
+
+            End If
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
+        End Try
+        conn.Close()
+
+
+
+
+
+    End Sub

@@ -836,3 +836,14 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         DataGridView1.Rows.Add(Val(cboitemid.SelectedItem), txtDescription.Text, Convert.ToDecimal(txtSellPrice.Text), Val(txtQty.Text))
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim total As Decimal = 0.0
+
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            total += (row.Cells("sell_price").Value * row.Cells("quantity").Value)
+
+        Next
+        Label1.Text = total
+    End Sub

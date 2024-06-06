@@ -766,21 +766,43 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         cbocid.SelectedText = id
         Try
             conn.Open()
-            sql = "select * from customer"
+            sql = "SELECT * FROM customer"
             dbcomm = New MySqlCommand(sql, conn)
             dbread = dbcomm.ExecuteReader()
             While dbread.Read()
                 cbocid.Items.Add(dbread("customer_id"))
 
             End While
-            dbread.Close()
+
+
+
         Catch ex As MySqlException
             MsgBox(ex.Message)
             conn.Close()
-            'Catch ex As Exception
-            '    MsgBox(ex.Message)
-            '    conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
         End Try
+        dbread.Close()
+
+        Try
+            sql = "SELECT * FROM item"
+            dbcomm = New MySqlCommand(sql, conn)
+            dbread = dbcomm.ExecuteReader()
+            While dbread.Read()
+                cboitemid.Items.Add(dbread("item_id"))
+
+
+            End While
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
+
+        End Try
+        dbread.Close()
         conn.Close()
 
     End Sub

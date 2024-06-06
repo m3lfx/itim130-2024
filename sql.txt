@@ -894,3 +894,6 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         End Try
         conn.Close()
     End Sub
+
+    //form load item combo box
+    sql = "SELECT * FROM item i INNER JOIN stock s ON i.item_id = s.item_id"

@@ -806,3 +806,29 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         conn.Close()
 
     End Sub
+
+
+    Private Sub cboitemid_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboitemid.SelectedIndexChanged
+        txtDescription.Clear()
+        txtSellPrice.Clear()
+        Dim itemId As Integer = Val(cboitemid.SelectedItem)
+        Try
+            conn.Open()
+            sql = $"SELECT description, sell_price FROM item WHERE item_id = {itemId}"
+            dbcomm = New MySqlCommand(sql, conn)
+            dbread = dbcomm.ExecuteReader()
+            dbread.Read()
+            txtDescription.Text = dbread("description")
+            txtSellPrice.Text = dbread("sell_price")
+
+        Catch ex As MySqlException
+            MsgBox(ex.Message)
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
+
+        End Try
+        dbread.Close()
+        conn.Close()
+    End Sub

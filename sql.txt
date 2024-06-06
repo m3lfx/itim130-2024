@@ -897,3 +897,25 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
 
     //form load item combo box
     sql = "SELECT * FROM item i INNER JOIN stock s ON i.item_id = s.item_id"
+
+    For Each row As DataGridViewRow In DataGridView1.Rows
+                sql = $"INSERT INTO orderline (orderinfo_id, item_id, quantity) VALUES(last_insert_id(), {row.Cells("item_id").Value}, {row.Cells("quantity").Value} )"
+                'Label1.Text = sql
+                dbcomm = New MySqlCommand(sql, conn)
+                i = dbcomm.ExecuteNonQuery
+                If (i > 0) Then
+                    MsgBox("record saved")
+                Else
+                    MsgBox("record not saved")
+
+                End If
+                sql = $"UPDATE stock SET quantity = quantity - {row.Cells("quantity").Value} WHERE item_id = {row.Cells("item_id").Value}"
+                dbcomm = New MySqlCommand(sql, conn)
+                i = dbcomm.ExecuteNonQuery
+                If (i > 0) Then
+                    MsgBox("record saved")
+                Else
+                    MsgBox("record not saved")
+
+                End If
+            Next

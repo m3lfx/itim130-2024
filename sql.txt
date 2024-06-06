@@ -847,3 +847,13 @@ Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Clic
         Next
         Label1.Text = total
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        If DataGridView1.SelectedRows.Count > 0 Then
+            'you may want to add a confirmation message, and if the user confirms delete
+            DataGridView1.Rows.Remove(DataGridView1.SelectedRows(0))
+        Else
+            MessageBox.Show("Select 1 row before you hit Delete")
+        End If
+    End Sub

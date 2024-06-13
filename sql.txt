@@ -948,3 +948,16 @@ UPDATE album_listener SET review = 'ok' WHERE listener_id = 1
 UPDATE album_listener SET review = 'ok' WHERE album_id = 4
 
 INSERT INTO albums (artist_id, title, genre, date_released) VALUES(3, 'master of puppets', 'metal', '1984');
+
+INSERT INTO songs (album_id, title, description) VALUES (7, 'battery', 'ook'), (7, 'orion', 'ok')
+
+DELETE FROM albums where artist_id = 1;
+
+SELECT l.name, ar.name, al.title, al.genre, s.title 
+FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id INNER JOIN songs s ON al.album_id = s.album_id
+INNER JOIN album_listener al_li ON al.album_id = al_li.album_id  INNER JOIN listener l ON l.listener_id = al_li.listener_id
+
+SELECT ar.name, al.title, al.genre
+FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id
+WHERE al.genre LIKE '%pop%'
+

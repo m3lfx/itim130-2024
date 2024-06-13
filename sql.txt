@@ -942,4 +942,9 @@ FROM  albums al INNER JOIN songs s ON al.album_id = s.album_id
 WHERE s.description <> 'nice' OR s.description <> 'cool'
 
 INSERT INTO listeners (name, email, address) VALUES('john doe', 'john@gmail.com', 'taguig');
-INSERT INTO album_listener(listener_id, album_id) VALUES(1,4);
+INSERT INTO album_listener(listener_id, album_id, review) VALUES(1,4, 'awesome');
+
+UPDATE album_listener SET review = 'ok' WHERE listener_id = 1
+UPDATE album_listener SET review = 'ok' WHERE album_id = 4
+
+INSERT INTO albums (artist_id, title, genre, date_released) VALUES(3, 'master of puppets', 'metal', '1984');

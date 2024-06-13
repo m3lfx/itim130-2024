@@ -974,5 +974,5 @@ REVOKE DELETE ON db_sales2024.item FROM user111@'localhost';
 
 mysqldump -u [username] -p[password] [database_name,db2,db3...] > /path/to/[dump_file.sql]
 
-mysqldump -uroot -p db_sales2024 > c:/users/rommel dalisay/desktop/db_sales06132024.sql
+mysqldump -uroot -p db_sales2024 > d:path/db_sales06132024.sql
 mysql -uroot -p db_sales2024 < d:/db_sales06132024.sql

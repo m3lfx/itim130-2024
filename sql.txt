@@ -928,3 +928,11 @@ Private Sub txtQty_TextChanged(sender As Object, e As EventArgs) Handles txtQty.
             MsgBox("exceeds stock quantity")
         End If
     End Sub
+
+SELECT  al.title, ar.name, al.date_released
+FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id
+WHERE ar.name = 'black pink'
+
+SELECT ar.name, al.title, s.title
+FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id INNER JOIN songs s ON al.album_id = s.album_id
+WHERE ar.name = 'the beatles'

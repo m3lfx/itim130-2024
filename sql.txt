@@ -968,3 +968,5 @@ GRANT ALL ON db_sales2024.* TO user123@'localhost' IDENTIFIED BY 'password';
 
 GRANT SELECT (title,fname,lname)  ON db_sales2024.customer to user111@'localhost' IDENTIFIED BY 'password';
 
+GRANT SELECT, UPDATE, DELETE  ON db_sales2024.item to user111@'localhost';
+

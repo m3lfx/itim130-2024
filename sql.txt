@@ -970,3 +970,5 @@ GRANT SELECT (title,fname,lname)  ON db_sales2024.customer to user111@'localhost
 
 GRANT SELECT, UPDATE, DELETE  ON db_sales2024.item to user111@'localhost';
 
+REVOKE DELETE ON db_sales2024.item FROM user111@'localhost';
+

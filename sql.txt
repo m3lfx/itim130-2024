@@ -964,3 +964,7 @@ WHERE al.genre LIKE '%pop%'
 CREATE USER superadmin9000@'%'
 IDENTIFIED BY 'p@ssw0rd';
 
+GRANT ALL ON db_sales2024.* TO user123@'localhost' IDENTIFIED BY 'password';
+
+GRANT SELECT (title,fname,lname)  ON db_sales2024.customer to user111@'localhost' IDENTIFIED BY 'password';
+

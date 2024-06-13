@@ -936,3 +936,10 @@ WHERE ar.name = 'black pink'
 SELECT ar.name, al.title, s.title
 FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id INNER JOIN songs s ON al.album_id = s.album_id
 WHERE ar.name = 'the beatles'
+
+SELECT al.title, s.title, s.description
+FROM  albums al INNER JOIN songs s ON al.album_id = s.album_id
+WHERE s.description <> 'nice' OR s.description <> 'cool'
+
+INSERT INTO listeners (name, email, address) VALUES('john doe', 'john@gmail.com', 'taguig');
+INSERT INTO album_listener(listener_id, album_id) VALUES(1,4);

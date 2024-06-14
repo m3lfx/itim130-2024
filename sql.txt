@@ -961,14 +961,14 @@ SELECT ar.name, al.title, al.genre
 FROM artists ar INNER JOIN albums al ON ar.artist_id = al.artist_id
 WHERE al.genre LIKE '%pop%'
 
-CREATE USER superadmin9000@'%'
+CREATE USER superadmin8000@'%'
 IDENTIFIED BY 'p@ssw0rd';
 
-GRANT ALL ON db_sales2024.* TO user123@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON db_sales2024.* TO admin123@'localhost' IDENTIFIED BY 'password';
 
-GRANT SELECT (title,fname,lname)  ON db_sales2024.customer to user111@'localhost' IDENTIFIED BY 'password';
+GRANT SELECT (fname, lname, addressline)  ON db_sales2024.customer to admin111@'localhost' IDENTIFIED BY 'password';
 
-GRANT SELECT, UPDATE, DELETE  ON db_sales2024.item to user111@'localhost';
+GRANT SELECT, UPDATE, DELETE  ON db_sales2024.item to admin111@'localhost';
 
 REVOKE DELETE ON db_sales2024.item FROM user111@'localhost';
 
